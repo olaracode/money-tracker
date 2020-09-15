@@ -1,0 +1,8 @@
+.errorIcon {
+  color: red !important;
+  padding: 0 0 0 10px;
+}
+.errorContainer{
+    align-items: center;
+    display: flex;
+}

@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+/* importing */
+.nav {
+  background-color: #002757;
+  width: 100%;
+  height: 30px;
+  position: fixed;
+}
+.nav a {
+  color: white;
+  text-decoration: none;
+}
+.navContainer {
+  justify-content: space-evenly;
+  display: flex;
+  align-items: center;
+  width: auto;
+  margin: auto;
+}
+.nav h3 {
+  width: 190px;
+  text-align: center;
+}
+
+.navlogo {
+  height: 15px;
+  padding: 6px 0 0 0;
+}
+@media only screen (max-width: 550){
+    .nav h3{
+        display: none;
+    }
+} 

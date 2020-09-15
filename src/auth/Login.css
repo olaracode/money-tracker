@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+
+.Body {
+  height: 800px;
+  width: 100%;
+  background-image: linear-gradient(to bottom right, black, #020136, #110f85);
+}
+.cardContainer {
+  padding: 100px 0 0 0;
+}
+.formHeader {
+  padding: 30px 0 30px 0;
+}
+h3 {
+  text-align: center;
+  font-family: "Roboto";
+}
+.formItem {
+  display: flex;
+  justify-content: center;
+  padding: 0 0 30px;
+  font-family: 'Roboto';
+}
+.textField {
+  width: 60%;
+  margin: auto;
+}
+.card {
+  min-width: 300px;
+  max-width: 500px;
+  height: auto;
+  background-color: white;
+  margin: auto;
+}
+
+a {
+  font-family: "Roboto";
+  text-decoration: none;
+  color: black;
+  padding: 0 0 0 5px;
+}
+a:hover{
+    color: #007032;
+}

@@ -1,0 +1,30 @@
+.cardContainer {
+  width: 70%;
+  margin: auto;
+}
+.ingresos {
+  padding: 20px 0;
+  color: green;
+}
+.egresos {
+  padding: 20px 0;
+  color: red;
+}
+.saldo {
+  padding: 20px 0;
+  color: #0077ff;
+}
+.spinner {
+  padding-top: 20px;
+  width: 60px;
+  margin: auto;
+}
+.lastInput {
+  text-align: center;
+  font-family: "Roboto";
+  color: #8b8989;
+  margin: auto;
+}
+.BarContainer{
+  padding-top: 50px; 
+}

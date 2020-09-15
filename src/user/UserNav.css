@@ -1,0 +1,16 @@
+.Logout {
+  padding: 0 0 4px 0;
+}
+.Logo {
+  height: 15px;
+}
+.container {
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.root{
+    display: flex
+}

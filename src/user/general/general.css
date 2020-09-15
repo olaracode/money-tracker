@@ -1,4 +1,4 @@
-.cardContainer {
+.body {
   width: 70%;
   margin: auto;
 }
@@ -25,6 +25,27 @@
   color: #8b8989;
   margin: auto;
 }
-.BarContainer{
-  padding-top: 50px; 
+.BarContainer {
+  padding-top: 50px;
+}
+.progressContainer {
+  padding-top: 50px;
+  height: 300px;
+}
+.progressTitulo {
+  padding-bottom: 30px;
+}
+.linearContainer {
+  font-family: "Roboto";
+  text-align: center;
+  padding-bottom: 15px;
+  width: 90%;
+  margin: auto;
+}
+.linearContainer h5 {
+  padding-bottom: 6px;
+}
+.linearProgress {
+  padding-top: 5px;
+  width: auto;
 }

@@ -1,5 +1,6 @@
 const User = require("../modelos/usuarios");
 const Egreso = require("../modelos/egresos");
+const Metas = require("../modelos/Metas");
 
 //Retorna todos los egresos asociados a un usuario
 exports.egresosUsuario = async (req, res) => {

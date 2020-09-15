@@ -1,16 +1,19 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Card, CircularProgress, Grid } from "@material-ui/core";
+import { Paper } from "@material-ui/core";
 import "./general.css";
 import UserContext from "../../context/UserContext";
 import axios from "axios";
 import GridContainer from "./GridContainer";
 import BarGraphs from "./BarGraphs";
+import Progreso from "./Progreso";
 
 function General() {
   const { userData } = useContext(UserContext);
   const [ultIngreso, setIngreso] = useState();
   const [ultEgreso, setEgreso] = useState();
   const [isLoading, setLoading] = useState(true);
+  const [dataIngresos, setDataI] = useState();
+  const [dataEgresos, setDataE] = useState();
   useEffect(() => {
     const getLasts = async () => {
       let token = localStorage.getItem("auth-token");
@@ -28,11 +31,46 @@ function General() {
         },
         []
       );
+      if (getlastingreso.data === undefined) {
+        setIngreso("No hay ingresos");
+      }
+      if (getlastegreso.data === undefined) {
+        setIngreso("No hay egresos");
+      }
       setIngreso(getlastingreso.data);
       setEgreso(getlastegreso.data);
+    };
+    const getAll = async () => {
+      let token = localStorage.getItem("auth-token");
+      const getIngresos = await axios.get(
+        "http://localhost:5000/users/ingresos",
+        {
+          headers: { "auth-token": token },
+        },
+        []
+      );
+      const getEgresos = await axios.get(
+        "http://localhost:5000/users/egresos",
+        {
+          headers: { "auth-token": token },
+        },
+        []
+      );
+      let montoI = 0;
+      let montoE = 0;
+      getIngresos.data.map((ingreso) => {
+        return (montoI += ingreso.monto);
+      });
+      getEgresos.data.map((egreso) => {
+        return (montoE += egreso.monto);
+      });
+      setDataE(montoE);
+      setDataI(montoI);
       setLoading(false);
+      console.log(montoE, montoI);
     };
     getLasts();
+    getAll();
   }, []);
 
   const ingresosMes = userData.user.ingresosMes;
@@ -50,9 +88,21 @@ function General() {
           ultIngreso={ultIngreso}
           ultEgreso={ultEgreso}
         />
-        <div className="BarContainer">
-          <BarGraphs ingresosMes={ingresosMes} egresosMes={egresosMes} />
-        </div>
+      </div>
+
+      <div className="BarContainer">
+        <Paper elevation="3">
+          <BarGraphs
+            isLoading={isLoading}
+            ingresosMes={ingresosMes}
+            egresosMes={egresosMes}
+            dataIngresos={dataIngresos}
+            dataEgresos={dataEgresos}
+          />
+        </Paper>
+      </div>
+      <div>
+        <Progreso />
       </div>
     </div>
   );

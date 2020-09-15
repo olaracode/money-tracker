@@ -3,7 +3,7 @@ import "./UserStyle.css";
 import UserNav from "./UserNav";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import General from "./general/General";
-import Ingresos from "./Ingresos";
+import Ingresos from "./Ingresos/Ingresos";
 import Egresos from "./Egresos";
 import Metas from "./Metas";
 

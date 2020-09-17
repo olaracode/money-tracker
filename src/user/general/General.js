@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Paper } from "@material-ui/core";
+import { CircularProgress, Paper } from "@material-ui/core";
 import "./general.css";
 import UserContext from "../../context/UserContext";
 import axios from "axios";
@@ -12,8 +12,10 @@ function General() {
   const [ultIngreso, setIngreso] = useState();
   const [ultEgreso, setEgreso] = useState();
   const [isLoading, setLoading] = useState(true);
+
   const [dataIngresos, setDataI] = useState();
   const [dataEgresos, setDataE] = useState();
+
   useEffect(() => {
     const getLasts = async () => {
       let token = localStorage.getItem("auth-token");
@@ -39,6 +41,7 @@ function General() {
       }
       setIngreso(getlastingreso.data);
       setEgreso(getlastegreso.data);
+      setLoading(false);
     };
     const getAll = async () => {
       let token = localStorage.getItem("auth-token");
@@ -66,7 +69,6 @@ function General() {
       });
       setDataE(montoE);
       setDataI(montoI);
-      setLoading(false);
       console.log(montoE, montoI);
     };
     getLasts();
@@ -79,31 +81,39 @@ function General() {
 
   return (
     <div className="body">
-      <div className="cardContainer">
-        <GridContainer
-          isLoading={isLoading}
-          ingresosMes={ingresosMes}
-          egresosMes={egresosMes}
-          saldo={saldo}
-          ultIngreso={ultIngreso}
-          ultEgreso={ultEgreso}
-        />
-      </div>
+      {isLoading ? (
+        <div className="spinnerGeneral">
+          <CircularProgress />
+        </div>
+      ) : (
+        <>
+          <div className="cardContainer">
+            <GridContainer
+              isLoading={isLoading}
+              ingresosMes={ingresosMes}
+              egresosMes={egresosMes}
+              saldo={saldo}
+              ultIngreso={ultIngreso}
+              ultEgreso={ultEgreso}
+            />
+          </div>
 
-      <div className="BarContainer">
-        <Paper elevation="3">
-          <BarGraphs
-            isLoading={isLoading}
-            ingresosMes={ingresosMes}
-            egresosMes={egresosMes}
-            dataIngresos={dataIngresos}
-            dataEgresos={dataEgresos}
-          />
-        </Paper>
-      </div>
-      <div>
-        <Progreso />
-      </div>
+          <div className="BarContainer">
+            <Paper elevation="3">
+              <BarGraphs
+                isLoading={isLoading}
+                ingresosMes={ingresosMes}
+                egresosMes={egresosMes}
+                dataIngresos={dataIngresos}
+                dataEgresos={dataEgresos}
+              />
+            </Paper>
+          </div>
+          <div>
+            <Progreso />
+          </div>
+        </>
+      )}
     </div>
   );
 }

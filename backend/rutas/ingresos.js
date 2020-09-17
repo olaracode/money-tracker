@@ -90,7 +90,6 @@ exports.corregirIngreso = async (req, res) => {
 exports.eliminarIngreso = async (req, res) => {
   try {
     const ingreso = await Ingreso.findOne({ _id: req.params.id });
-    console.log(ingreso);
     if (!ingreso) {
       return res.status(400).json("Ingreso no existe");
     }
@@ -120,5 +119,142 @@ exports.eachIngresoMes = async (req, res) => {
     return res.status(200).json(ingresosEsteMes);
   } catch (err) {
     return res.status(500).json("Internal server error");
+  }
+};
+
+exports.ingresosCategorias = async (req, res) => {
+  try {
+    const ingresos = await Ingreso.find({ userid: req.user });
+    const categorias = {
+      salario: 0,
+      bienesRaices: 0,
+      ventas: 0,
+      miscelaneos: 0,
+    };
+    const categoriaIngresos = ingresos.map((ingreso) => {
+      switch (ingreso.categoria) {
+        case "Salario":
+          categorias.salario += ingreso.monto;
+          break;
+        case "Bienes Raices":
+          categorias.bienesRaices += ingreso.monto;
+          break;
+        case "Ventas":
+          categorias.ventas += ingreso.monto;
+          break;
+        case "Miscelaneos":
+          categorias.miscelaneos += ingreso.monto;
+          break;
+
+        default:
+          break;
+      }
+    });
+    return res.status(200).json(categorias);
+  } catch (err) {
+    return res.status(500).json("Internal Server Error");
+  }
+};
+
+exports.ingresosMensual = async (req, res) => {
+  try {
+    const ingresos = await Ingreso.find({ userid: req.user });
+    const ingresosMensuales = {
+      enero: 0,
+      febrero: 0,
+      marzo: 0,
+      abril: 0,
+      mayo: 0,
+      junio: 0,
+      julio: 0,
+      agosto: 0,
+      septiembre: 0,
+      octubre: 0,
+      noviembre: 0,
+      diciembre: 0,
+    };
+    const meses = ingresos.map((ingreso) => {
+      switch (ingreso.fecha.getMonth()) {
+        case 1:
+          ingresosMensuales.enero += ingreso.monto;
+          break;
+        case 2:
+          ingresosMensuales.febrero += ingreso.monto;
+          break;
+        case 3:
+          ingresosMensuales.marzo += ingreso.monto;
+          break;
+        case 4:
+          ingresosMensuales.abril += ingreso.monto;
+          break;
+        case 5:
+          ingresosMensuales.mayo += ingreso.monto;
+          break;
+        case 6:
+          ingresosMensuales.junio += ingreso.monto;
+          break;
+        case 7:
+          ingresosMensuales.julio += ingreso.monto;
+          break;
+        case 8:
+          ingresosMensuales.agosto += ingreso.monto;
+          break;
+        case 9:
+          ingresosMensuales.septiembre += ingreso.monto;
+          break;
+        case 10:
+          ingresosMensuales.octubre += ingreso.monto;
+          break;
+        case 11:
+          ingresosMensuales.noviembre += ingreso.monto;
+          break;
+        case 12:
+          ingresosMensuales.diciembre += ingreso.monto;
+          break;
+        default:
+          break;
+      }
+    });
+    return res.status(200).json(ingresosMensuales);
+  } catch (err) {
+    return res.status(500).json({ msg: "Internal server error" });
+  }
+};
+
+exports.categoriasMensualesIngresos = async (req, res) => {
+  try {
+    const ingresos = await Ingreso.find({ userid: req.user });
+    const mesActual = new Date().getMonth();
+    const categorias = {
+      salario: 0,
+      bienesRaices: 0,
+      ventas: 0,
+      miscelaneos: 0,
+    };
+    const esteMes = ingresos.map((ingreso) => {
+      if (ingreso.fecha.getMonth() === mesActual) {
+        switch (ingreso.categoria) {
+          case "Salario":
+            categorias.salario += ingreso.monto;
+            break;
+          case "Bienes Raices":
+            categorias.bienesRaices += ingreso.monto;
+            break;
+          case "Ventas":
+            categorias.ventas += ingreso.monto;
+            break;
+          case "miscelaneos":
+            categorias.miscelaneos += ingreso.monto;
+            break;
+
+          default:
+            categorias.miscelaneos += ingreso.monto;
+            break;
+        }
+      }
+    });
+    return res.status(200).json(categorias);
+  } catch (err) {
+    return res.status(500).json({ err: "Internal server error" });
   }
 };

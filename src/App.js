@@ -6,9 +6,13 @@ import Login from "./auth/Login";
 import Register from "./auth/Register";
 import Navbar from "./Navbar";
 import UserContext from "./context/UserContext";
-import UserArea from "./user/UserArea";
-import { CircularProgress, LinearProgress } from "@material-ui/core";
+import General from "./user/general/General";
+import Ingresos from "./user/Ingresos/Ingresos";
+import Egresos from "./user/Egresos";
+import Metas from "./user/Metas";
+import {  LinearProgress } from "@material-ui/core";
 import "./loader.css";
+import UserNav from "./user/UserNav";
 
 function App() {
   const [userData, setUserData] = useState({
@@ -64,8 +68,13 @@ function App() {
               </>
             ) : (
               <>
+                <UserNav />
                 <Switch>
-                  <Route exact path="/" component={UserArea} />
+                  <Route exact path="/" component={General} />
+                  <Route path="/ingresos" component={Ingresos} />
+                  <Route path="/egresos" component={Egresos} />
+                  <Route path="/metas" component={Metas} />
+
                   <Redirect from="/login" to="/" component={Login} />
                   <Redirect from="/register" to="/" component={Register} />
                 </Switch>

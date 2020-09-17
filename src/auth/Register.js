@@ -28,7 +28,6 @@ function Register() {
     e.preventDefault();
     try {
       const newUser = { email, password, passwordCheck, username, sexo };
-      console.log(newUser);
       await axios.post("http://localhost:5000/users/registro", newUser);
       const loginRes = await axios.post("http://localhost:5000/users/login", {
         email,

@@ -19,6 +19,11 @@
   width: 60px;
   margin: auto;
 }
+.spinnerGeneral {
+  padding-top: 35%;
+  margin: auto;
+  width: 60px;
+}
 .lastInput {
   text-align: center;
   font-family: "Roboto";

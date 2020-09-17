@@ -16,6 +16,9 @@ const {
   eliminarIngreso,
   ultimoIngreso,
   eachIngresoMes,
+  ingresosMensual,
+  ingresosCategorias,
+  categoriasMensualesIngresos,
 } = require("./ingresos");
 const {
   egresosUsuario,
@@ -63,7 +66,10 @@ router.post("/ingreso/corregir/:id", auth, corregirIngreso);
 
 router.delete("/ingreso/eliminar/:id", auth, eliminarIngreso);
 
-router.get("/ingresosMes", auth, eachIngresoMes);
+router.get("/ingresosMes", auth, eachIngresoMes); //Suma de todos los ingresos de un mes
+router.get("/ingresos/mensuales", auth, ingresosMensual); //Todos los ingresos divididos entre los doce meses
+router.get("/ingresos/categoria", auth, ingresosCategorias); // Ingresos totales divididos en categorias
+router.get("/ingresos/mes/categoria", auth, categoriasMensualesIngresos); // Ingresos del MES ACTUAL dividido en categorias
 
 // EGRESO
 router.get("/egresosMes", auth, eachEgresoMes);

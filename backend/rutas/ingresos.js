@@ -147,6 +147,7 @@ exports.ingresosCategorias = async (req, res) => {
           break;
 
         default:
+          categorias.miscelaneos += ingreso.monto;
           break;
       }
     });

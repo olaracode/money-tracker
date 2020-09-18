@@ -1,0 +1,51 @@
+.ingresosBody {
+  padding-top: 150px;
+  width: 70%;
+  margin: auto;
+}
+.ingresosTop {
+  color: red;
+  padding: 5px 0 0 0;
+  font-family: "Roboto";
+  text-align: center;
+}
+.fabBoton {
+  background-color: #79d9fc !important;
+  height: 46px;
+}
+.addButtonContainer {
+  width: 100px;
+  margin: auto;
+}
+.graficosContainer {
+  padding-top: 30px;
+}
+.lineHeight {
+  width: 90%;
+  margin: auto;
+}
+.modalContainer {
+  margin: auto;
+  width: 30%;
+  min-width: 330px;
+  padding-top: 100px;
+}
+.botonSalida {
+  width: 24px;
+  margin-left: auto;
+  padding: 10px 15px 0 0;
+  align-items: center;
+}
+.inputContainer {
+  margin: auto;
+  padding: 40px 0 0 0;
+  width: fit-content;
+}
+.select {
+  width: 200px;
+}
+.submitContainer {
+  width: fit-content;
+  margin: auto;
+  padding: 40px 0 40px 0;
+}

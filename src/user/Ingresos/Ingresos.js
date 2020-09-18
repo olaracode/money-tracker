@@ -12,7 +12,10 @@ function Ingresos() {
   const [ingresosMesCategorias, setIngresosMesCategorias] = useState();
   const [ingresosTotalesCategorias, setIngresosTotalesCategorias] = useState();
   const [ingresosMensuales, setIngresosMensuales] = useState();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading1, setIsLoading1] = useState(true);
+  const [isLoading2, setIsLoading2] = useState(true);
+  const [isLoading3, setIsLoading3] = useState(true);
+  const [isLoading4, setIsLoading4] = useState(true);
 
   useEffect(() => {
     const getAll = async () => {
@@ -24,6 +27,18 @@ function Ingresos() {
         },
         []
       );
+      let montoI = 0;
+      getIngresos.data.map((ingreso) => {
+        return (montoI += ingreso.monto);
+      });
+      setIngresosTotales(montoI);
+      setIsLoading1(false);
+    };
+    getAll();
+  });
+  useEffect(() => {
+    const getCatMes = async () => {
+      let token = localStorage.getItem("auth-token");
       const getMesCategorias = await axios.get(
         "http://localhost:5000/users/ingresos/mes/categoria",
         {
@@ -31,6 +46,14 @@ function Ingresos() {
         },
         []
       );
+      setIngresosMesCategorias(getMesCategorias.data);
+      setIsLoading2(false);
+    };
+    getCatMes();
+  }, []);
+  useEffect(() => {
+    const getCatTotal = async () => {
+      let token = localStorage.getItem("auth-token");
       const getCategorias = await axios.get(
         "http://localhost:5000/users/ingresos/categoria",
         {
@@ -38,6 +61,14 @@ function Ingresos() {
         },
         []
       );
+      setIngresosTotalesCategorias(getCategorias.data);
+      setIsLoading3(false);
+    };
+    getCatTotal();
+  }, []);
+  useEffect(() => {
+    const getMes = async () => {
+      let token = localStorage.getItem("auth-token");
       const getMensuales = await axios.get(
         "http://localhost:5000/users/ingresos/mensuales",
         {
@@ -45,23 +76,16 @@ function Ingresos() {
         },
         []
       );
-      let montoI = 0;
-      getIngresos.data.map((ingreso) => {
-        return (montoI += ingreso.monto);
-      });
-      setIngresosTotales(montoI);
-      setIngresosMesCategorias(getMesCategorias.data);
-      setIngresosTotalesCategorias(getCategorias.data);
       setIngresosMensuales(getMensuales.data);
-      setIsLoading(false);
+      setIsLoading4(false);
     };
-    getAll();
+    getMes();
   }, []);
   const ingresosMes = userData.user.ingresosMes;
 
   return (
     <div className="ingresosBody">
-      {isLoading ? (
+      {isLoading1 | isLoading2 | isLoading3 | isLoading4 ? (
         <CircularProgress />
       ) : (
         <>

@@ -14,13 +14,13 @@ function Top(props) {
       <Grid container spacing={10}>
         <Grid item xs={12} sm={5}>
           <Card>
-            <h3>Ingresos Totales</h3>
+            <h3>Egresos Totales</h3>
             <h4 className="ingresosTop">{ingresosTotales}</h4>
           </Card>
         </Grid>
         <Grid item xs={12} sm={5}>
           <Card>
-            <h3>Ingresos Mensuales</h3>
+            <h3>Egresos Mensuales</h3>
             <h4 className="ingresosTop">{props.ingresosMes}</h4>
           </Card>
         </Grid>
@@ -28,24 +28,14 @@ function Top(props) {
           <div className="addButtonContainer">
             <Button onClick={() => setOpen(true)} className="fabBoton">
               <AddIcon />
-              Ingreso
+              Egreso
             </Button>
           </div>
         </Grid>
       </Grid>
       <Modal open={open}>
         <>
-          <Add
-            handleClose={() => setOpen()}
-            categoria={[
-              {
-                salario: "Salario",
-                bienesRaices: "Bienes Raices",
-                ventas: "Ventas",
-                miscelaneos: "Miscelaneos",
-              },
-            ]}
-          />
+          <Add handleClose={() => setOpen()} />
         </>
       </Modal>
     </div>

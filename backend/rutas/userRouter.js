@@ -27,7 +27,11 @@ const {
   eliminarEgreso,
   ultimoegresosUsuario,
   eachEgresoMes,
+  egresosMensual,
+  egresosCategorias,
+  categoriasMensualesEgresos,
 } = require("./egresos");
+const { metasUsuario, nuevaMeta, nuevoPago } = require("./metas");
 
 // USUARIOS
 
@@ -66,7 +70,7 @@ router.post("/ingreso/corregir/:id", auth, corregirIngreso);
 
 router.delete("/ingreso/eliminar/:id", auth, eliminarIngreso);
 
-router.get("/ingresosMes", auth, eachIngresoMes); //Suma de todos los ingresos de un mes
+router.get("/ingresosMes", auth, eachIngresoMes); //Todos los ingresos del mes actual
 router.get("/ingresos/mensuales", auth, ingresosMensual); //Todos los ingresos divididos entre los doce meses
 router.get("/ingresos/categoria", auth, ingresosCategorias); // Ingresos totales divididos en categorias
 router.get("/ingresos/mes/categoria", auth, categoriasMensualesIngresos); // Ingresos del MES ACTUAL dividido en categorias
@@ -86,5 +90,16 @@ router.post("/egreso/corregir/:id", auth, corregirEgreso);
 
 // Eliminar egreso
 router.delete("/egreso/eliminar/:id", auth, eliminarEgreso);
+router.get("/egresos/mensuales", auth, egresosMensual); //Todos los egreso divididos entre los doce meses
+router.get("/egresos/categoria", auth, egresosCategorias); // egreso totales divididos en categorias
+router.get("/egresos/mes/categoria", auth, categoriasMensualesEgresos); // Ingresos del MES ACTUAL dividido en categorias
+
+
+//Metas
+router.get("/metas", auth, metasUsuario);
+router.post("/meta/add", auth, nuevaMeta);
+router.post("/meta/pago/:id", auth, nuevoPago);
+
+
 
 module.exports = router;

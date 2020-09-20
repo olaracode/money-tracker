@@ -5,7 +5,7 @@ const Metas = require("../modelos/Metas");
 //Retorna todos los egresos asociados a un usuario
 exports.egresosUsuario = async (req, res) => {
   // Se utiliza el id del request(req.user) para encontrar todos los egresos asociados a ese usuario
-  const egresos = await Egreso.find({ userid: req.user });
+  let egresos = await Egreso.find({ userid: req.user });
   return res.status(200).json(egresos);
 };
 
@@ -13,6 +13,7 @@ exports.ultimoegresosUsuario = async (req, res) => {
   // Se utiliza el id del request(req.user) para encontrar todos los egresos asociados a ese usuario
   try {
     const egresos = await Egreso.find({ userid: req.user }).sort("created_at");
+    if (!egresos) return res.status(404).json({ msg: "No hay egresos" });
     if (egresos.length - 1 === 0) {
       const ultimoegreso = egresos[0];
       const fecha = {

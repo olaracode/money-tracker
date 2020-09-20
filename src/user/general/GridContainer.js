@@ -10,11 +10,6 @@ function GridContainer(props) {
             <h3>Ingresos del mes</h3>
             <>
               <h3 className="ingresos">{props.ingresosMes}</h3>
-              <p className="lastInput">
-                Ultimo ingreso:
-                {props.ultIngreso.monto} - {props.ultIngreso.fecha.dia}/
-                {props.ultIngreso.fecha.mes}/{props.ultIngreso.fecha.ano}
-              </p>
             </>
           </Card>
         </Grid>
@@ -23,11 +18,6 @@ function GridContainer(props) {
             <h3>Egresos del mes</h3>
             <>
               <h3 className="egresos">{props.egresosMes}</h3>
-              <p className="lastInput">
-                Ultimo ingreso:
-                {props.ultEgreso.monto} - {props.ultEgreso.fecha.dia}/
-                {props.ultEgreso.fecha.mes}/{props.ultEgreso.fecha.ano}
-              </p>
             </>
           </Card>
         </Grid>

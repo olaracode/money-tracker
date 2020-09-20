@@ -5,7 +5,8 @@ const egresoSchema = new mongoose.Schema({
   monto: { type: Number, required: true },
   categoria: { type: String, required: true },
   descripcion: { type: String },
-  fecha: {type: Date, required: true}
+  fecha: { type: Date, required: true },
+  metaid: { type: String },
 });
 
 module.exports = Egreso = mongoose.model("egreso", egresoSchema);

@@ -9,40 +9,12 @@ import Progreso from "./Progreso";
 
 function General() {
   const { userData } = useContext(UserContext);
-  const [ultIngreso, setIngreso] = useState();
-  const [ultEgreso, setEgreso] = useState();
   const [isLoading, setLoading] = useState(true);
 
   const [dataIngresos, setDataI] = useState();
   const [dataEgresos, setDataE] = useState();
 
   useEffect(() => {
-    const getLasts = async () => {
-      let token = localStorage.getItem("auth-token");
-      const getlastingreso = await axios.get(
-        "http://localhost:5000/users/ingreso/ultimo",
-        {
-          headers: { "auth-token": token },
-        },
-        []
-      );
-      const getlastegreso = await axios.get(
-        "http://localhost:5000/users/egresos/ultimo",
-        {
-          headers: { "auth-token": token },
-        },
-        []
-      );
-      if (getlastingreso.data === undefined) {
-        setIngreso("No hay ingresos");
-      }
-      if (getlastegreso.data === undefined) {
-        setIngreso("No hay egresos");
-      }
-      setIngreso(getlastingreso.data);
-      setEgreso(getlastegreso.data);
-      setLoading(false);
-    };
     const getAll = async () => {
       let token = localStorage.getItem("auth-token");
       const getIngresos = await axios.get(
@@ -70,8 +42,8 @@ function General() {
       setDataE(montoE);
       setDataI(montoI);
       console.log(montoE, montoI);
+      setLoading(false);
     };
-    getLasts();
     getAll();
   }, []);
 
@@ -93,8 +65,6 @@ function General() {
               ingresosMes={ingresosMes}
               egresosMes={egresosMes}
               saldo={saldo}
-              ultIngreso={ultIngreso}
-              ultEgreso={ultEgreso}
             />
           </div>
 

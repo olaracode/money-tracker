@@ -9,8 +9,8 @@ import UserContext from "./context/UserContext";
 import General from "./user/general/General";
 import Ingresos from "./user/Ingresos/Ingresos";
 import Egresos from "./user/egresos/Egresos";
-import Metas from "./user/Metas";
-import {  LinearProgress } from "@material-ui/core";
+import Metas from "./user/metas/Metas";
+import { LinearProgress } from "@material-ui/core";
 import "./loader.css";
 import UserNav from "./user/UserNav";
 

@@ -1,0 +1,63 @@
+.metasContainer {
+  padding-top: 150px;
+  width: 70%;
+  margin: auto;
+}
+.fixedButton {
+  position: fixed;
+  padding: 0 30px 30px 0;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+}
+.metasH3 {
+  font-size: 30px;
+}
+.progresoMetasContainer {
+  padding-top: 30px;
+}
+.progresoCardContainer {
+  align-items: center;
+  background-color: #fafafa !important;
+}
+.barraProgreso {
+  height: 5px;
+  padding: 10px 15px;
+}
+.metasGridContainer {
+  width: 80%;
+  margin: auto !important;
+}
+.metaButton {
+  margin: auto !important;
+  padding: 10px 0;
+  max-width: 92px;
+}
+.editButton {
+  background-color: #deaf2c !important;
+  color: white !important;
+}
+
+.nuevaMetaContainer {
+  margin: auto;
+  width: 30%;
+  min-width: 330px;
+  padding-top: 150px;
+}
+.botonSalida {
+  width: 24px;
+  margin-left: auto;
+  padding: 10px 15px 0 0;
+  align-items: center;
+}
+.nuevaMetaForm {
+  margin: Auto;
+  max-width: 200px;
+}
+.nuevaMetaInputFields {
+  padding: 15px 0 0 0;
+}
+.metasErrorHandler {
+  margin: auto !important;
+  width: max-content;
+}

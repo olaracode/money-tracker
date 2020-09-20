@@ -86,7 +86,9 @@ function Ingresos() {
   return (
     <div className="ingresosBody">
       {isLoading1 | isLoading2 | isLoading3 | isLoading4 ? (
+        <div class="spinnerGeneral">
         <CircularProgress />
+        </div>
       ) : (
         <>
           <Top ingresosMes={ingresosMes} ingresosTotales={ingresosTotales} />

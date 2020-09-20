@@ -3,6 +3,11 @@
   width: 70%;
   margin: auto;
 }
+.spinnerGeneral {
+  padding-top: 35%;
+  margin: auto;
+  width: 60px;
+}
 .ingresosTop {
   color: green;
   padding: 5px 0 0 0;

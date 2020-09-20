@@ -31,7 +31,7 @@ const {
   egresosCategorias,
   categoriasMensualesEgresos,
 } = require("./egresos");
-const { metasUsuario, nuevaMeta, nuevoPago } = require("./metas");
+const { metasUsuario, nuevaMeta, nuevoPago, todosLosPagos } = require("./metas");
 
 // USUARIOS
 
@@ -99,6 +99,8 @@ router.get("/egresos/mes/categoria", auth, categoriasMensualesEgresos); // Ingre
 router.get("/metas", auth, metasUsuario);
 router.post("/meta/add", auth, nuevaMeta);
 router.post("/meta/pago/:id", auth, nuevoPago);
+router.post("/meta/pagos/:id", auth, todosLosPagos);
+
 
 
 

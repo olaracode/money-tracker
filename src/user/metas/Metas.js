@@ -33,9 +33,7 @@ function Metas() {
               <Grid item xs={12} sm={6}>
               <MetaContainer
                 key={meta._id}
-                nombre={meta.nombre}
-                monto={meta.monto}
-                pago={meta.pagos}
+                meta={meta}
               />
               </Grid>
             );

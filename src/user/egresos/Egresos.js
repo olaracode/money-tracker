@@ -62,7 +62,7 @@ function Egresos() {
   return (
     <div className="ingresosBody">
       {isLoading ? (
-        <div class="spinnerGeneral">
+        <div className="spinnerGeneral">
           <CircularProgress />
         </div>
       ) : (
@@ -70,21 +70,21 @@ function Egresos() {
           <Top ingresosMes={egresosMes} ingresosTotales={egresosTotales} />
           <Graficos
             backgroundColor={[
-              "#EF9A9A",
-              "#EF5350",
-              "#F44336",
-              "#E53935",
-              "#D32F2F",
-              "#C62828",
-              "#B71C1C",
+              "#a0d0c8",
+              "#ecc44d",
+              "#7698a0",
+              "#da4c62",
+              "#a8c5cc",
+              "#3b3d50",
+              "#e7ded4",
             ]}
             texto={{ totales: "Egresos Totales", mes: "Egresos del Mes" }}
             categorias={[
               "Renta",
-              "Servicios",
-              "Comida",
-              "Lujos",
               "Metas",
+              "Servicios",
+              "Lujos",
+              "Comida",
               "Salidas",
               "Miscelaneos",
             ]}

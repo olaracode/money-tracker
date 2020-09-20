@@ -13,6 +13,7 @@ function General() {
 
   const [dataIngresos, setDataI] = useState();
   const [dataEgresos, setDataE] = useState();
+  const [metas, setMetas] = useState();
 
   useEffect(() => {
     const getAll = async () => {
@@ -31,6 +32,13 @@ function General() {
         },
         []
       );
+      const getMetas = await axios.get(
+        "http://localhost:5000/users/metas",
+        {
+          headers: { "auth-token": token },
+        },
+        []
+      );
       let montoI = 0;
       let montoE = 0;
       getIngresos.data.map((ingreso) => {
@@ -42,6 +50,8 @@ function General() {
       setDataE(montoE);
       setDataI(montoI);
       console.log(montoE, montoI);
+      setMetas(getMetas.data);
+      console.log(getMetas);
       setLoading(false);
     };
     getAll();
@@ -69,7 +79,7 @@ function General() {
           </div>
 
           <div className="BarContainer">
-            <Paper elevation="3">
+            <Paper elevation={3}>
               <BarGraphs
                 isLoading={isLoading}
                 ingresosMes={ingresosMes}
@@ -80,7 +90,7 @@ function General() {
             </Paper>
           </div>
           <div>
-            <Progreso />
+            <Progreso metas={metas} />
           </div>
         </>
       )}

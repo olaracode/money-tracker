@@ -47,30 +47,35 @@ function UserNav() {
       icon: <BusinessIcon />,
       functional: handleDrawer,
       path: "/",
+      key: 1,
     },
     {
       text: "Ingresos",
       icon: <CallMadeIcon />,
       functional: handleDrawer,
       path: "/ingresos",
+      key: 2,
     },
     {
       text: "Egresos",
       icon: <CallReceivedIcon />,
       functional: handleDrawer,
       path: "/egresos",
+      key: 3,
     },
     {
       text: "Metas",
       icon: <EmojiFlagsIcon />,
       functional: handleDrawer,
       path: "/metas",
+      key: 4,
     },
     {
       text: "Logout",
       icon: <ExitToAppIcon />,
       functional: logout,
       path: "/",
+      key: 5,
     },
   ];
 
@@ -98,10 +103,10 @@ function UserNav() {
         <div>
           <List>
             {itemsList.map((item, index) => {
-              const { text, icon, functional, path } = item;
+              const { text, icon, functional, path, key } = item;
               return (
-                <Link to={path} onClick={functional}>
-                  <ListItem button key={text}>
+                <Link to={path} key={key} onClick={functional}>
+                  <ListItem button>
                     {icon && <ListItemIcon>{icon}</ListItemIcon>}
                     <ListItemText primary={text} />
                   </ListItem>

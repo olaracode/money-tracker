@@ -31,7 +31,13 @@ const {
   egresosCategorias,
   categoriasMensualesEgresos,
 } = require("./egresos");
-const { metasUsuario, nuevaMeta, nuevoPago, todosLosPagos } = require("./metas");
+const {
+  metasUsuario,
+  nuevaMeta,
+  nuevoPago,
+  todosLosPagos,
+  editarMeta,
+} = require("./metas");
 
 // USUARIOS
 
@@ -94,14 +100,11 @@ router.get("/egresos/mensuales", auth, egresosMensual); //Todos los egreso divid
 router.get("/egresos/categoria", auth, egresosCategorias); // egreso totales divididos en categorias
 router.get("/egresos/mes/categoria", auth, categoriasMensualesEgresos); // Ingresos del MES ACTUAL dividido en categorias
 
-
 //Metas
 router.get("/metas", auth, metasUsuario);
 router.post("/meta/add", auth, nuevaMeta);
 router.post("/meta/pago/:id", auth, nuevoPago);
 router.post("/meta/pagos/:id", auth, todosLosPagos);
-
-
-
+router.post("/meta/editar/:id", auth, editarMeta);
 
 module.exports = router;

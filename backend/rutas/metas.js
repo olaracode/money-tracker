@@ -33,9 +33,6 @@ exports.nuevaMeta = async (req, res) => {
 
 exports.nuevoPago = async (req, res) => {
   try {
-    // if (meta.pagos === meta.monto) {
-    //   return res.status(400).json({ msg: "Esta meta ya fue alcanzada" });
-    // }
     let { monto } = req.body;
     const meta = await Metas.findOne({ _id: req.params.id });
     const user = await User.findOne({ _id: req.user });
@@ -47,8 +44,14 @@ exports.nuevoPago = async (req, res) => {
       fecha: new Date(),
       metaid: meta._id,
     });
-    meta.pagos += monto;
-    if (meta.pago > meta.monto) {
+    if (meta.pagos === meta.monto || meta.pagos > meta.monto) {
+      return res.status(400).json({ msg: "Esta meta ya fue alcanzada" });
+    }
+    if (user.saldo <= 0) {
+      return res.status(400).json({ msg: `SALDO INSUFICIENTE ${user.saldo}` });
+    }
+    meta.pagos += egresoMeta.monto;
+    if (meta.pagos > meta.monto) {
       return res
         .status(400)
         .json({ msg: "El monto ingresado supera el limite de la meta" });
@@ -58,6 +61,30 @@ exports.nuevoPago = async (req, res) => {
     meta.save();
     user.save();
     return res.status(200).json({ msg: "Pago procesado correctamente" });
+  } catch (err) {
+    return res.status(500).json({ msg: "Internal server error" });
+  }
+};
+
+exports.editarMeta = async (req, res) => {
+  try {
+    let { monto, nombre, descripcion } = req.body;
+    if (!monto && !nombre) {
+      return res.status(400).json({ msg: "Ingrese los campos Requeridos" });
+    }
+    const meta = await Metas.findOne({ _id: req.params.id });
+    if (monto) {
+      meta.monto = monto;
+    }
+    if (nombre) {
+      meta.nombre = nombre;
+    }
+    if (descripcion) {
+      meta.descripcion = descripcion;
+    }
+    meta.fecha = new Date();
+    meta.save();
+    return res.status(200).json({ msg: "Meta editada correctamente" });
   } catch (err) {
     return res.status(500).json({ msg: "Internal server error" });
   }

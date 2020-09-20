@@ -1,17 +1,21 @@
-import React from "react";
-import { Button, Card, Grid, LinearProgress } from "@material-ui/core";
+import React, { useState } from "react";
+import { Button, Card, Grid, LinearProgress, Modal } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import EditIcon from "@material-ui/icons/Edit";
+import NuevoPago from "./NuevoPago";
+import EditarMeta from "./EditarMeta";
 
 function MetaContainer(props) {
-  const progress = (props.pago * 100) / props.monto;
+  const [isOpen, setisOpen] = useState(false);
+  const [isEdit, setisEdit] = useState(false);
+  const progress = (props.meta.pagos * 100) / props.meta.monto;
   return (
     <div className="progresoMetasContainer">
       <Card className="progresoCardContainer">
         <Grid className="metasGridContainer" container>
           <Grid item sm={12}>
             <h3 className="tituloMetas">
-              {props.nombre} - {props.pago}$/{props.monto}$
+              {props.meta.nombre} - {props.meta.pagos}$/{props.meta.monto}$
             </h3>
           </Grid>
           <Grid item xs={12} sm={12}>
@@ -21,7 +25,11 @@ function MetaContainer(props) {
           </Grid>
           <Grid item xs={6} sm={6}>
             <div className="metaButton">
-              <Button className="editButton" variant="contained">
+              <Button
+                onClick={() => setisEdit(true)}
+                className="editButton"
+                variant="contained"
+              >
                 <EditIcon />
                 Editar
               </Button>
@@ -29,13 +37,32 @@ function MetaContainer(props) {
           </Grid>
           <Grid item xs={6} sm={6}>
             <div className="metaButton">
-              <Button variant="contained" color="primary">
+              <Button
+                onClick={() => setisOpen(true)}
+                variant="contained"
+                color="primary"
+              >
                 <AddIcon /> Pago
               </Button>
             </div>
           </Grid>
         </Grid>
       </Card>
+      <Modal open={isOpen}>
+        <NuevoPago
+          handleClose={() => setisOpen()}
+          ruta={`http://localhost:5000/users/meta/pago/${props.meta._id}`}
+          monto={props.meta.monto}
+          pagos={props.meta.pagos}
+        />
+      </Modal>
+      <Modal open={isEdit}>
+        <EditarMeta
+          handleClose={() => setisEdit()}
+          ruta={`http://localhost:5000/users/meta/editar/${props.meta._id}`}
+          meta={props.meta}
+        />
+      </Modal>
     </div>
   );
 }

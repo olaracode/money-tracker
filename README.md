@@ -1,68 +1,21 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Proyecto desarrollado para practicar manejo de estados, autorizacion de usuario, login y registro con Mongo Atlas.
 
-## Available Scripts
+El proyecto se desarrolla en dos carpetas. Backend que contiene todos los archivos de los modelos, la conexion a mongo usando express y cors, las rutas y un esquema de como se idearon los modelos al momento de comenzar. Se puede observar el nivel de cambios que hubo en el transcurso.
 
-In the project directory, you can run:
+El SRC contiene todo lo relevante a React. para el front end se utilizó principalmente  Material Ui para el desarrollo de los componentes, tambien se utilizó chartsjs-2 para realizar el graficado de los valores. Todo esta distribuido en sus carpetas para tener facil acceso a los componentes relevantes. Dentro de la mayoria de carpetas se encontrara un archivo homologo donde se unen casi todos los componentes de esa carpeta. App.js es el archivo principal de todo el proyecto.
 
-### `npm start`
+Para poder correr la app se tiene que crear un cluster en mongo Atlas, copiar la conexion en un archivo .env junto con su token secreto de JWT.
+Descargar nodemon. Correr nodemon en la carpeta backend
+Y correr npm start en la carpeta general.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+// ENGLISH
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Proyect developed to practice the state management, user authorization, login and registry using the mern stack.
 
-### `npm test`
+The proyect is divided in two main folders. Backend which container all the models, mongo conection using express and cors, routes and a schema of how i thought the models would look like when i started the proyect.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The SRC folder contain all React related files. For the front end Material UI was extensively used along side with chartjs to render the graphs. Everything is divided in folders for easy access. Inside each folder there is a file with the same name, in there all, or most componentes come together. App.js is the main file for the whole proyect.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+To run the app you need to create a mongo atlas cluster, copy the conection string and put it inside a env alonside a JWT randomly generated secret token.
+Npm nodemon, and run nodemon index in the backend folder.
+Run npm start in the general folder.

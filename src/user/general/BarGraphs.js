@@ -32,6 +32,7 @@ function BarGraphs(props) {
             display: true,
             position: "right",
           },
+          maintainAspectRatio: false,
         }}
       ></Bar>
     </div>

@@ -1,6 +1,6 @@
 .ingresosBody {
   padding-top: 150px;
-  width: 70%;
+  width: 80%;
   margin: auto;
 }
 .spinnerGeneral {
@@ -44,13 +44,22 @@
 .inputContainer {
   margin: auto;
   padding: 40px 0 0 0;
-  width: fit-content;
+  width: 215px;
 }
 .select {
-  width: 200px;
+  width: 215px;
 }
 .submitContainer {
   width: fit-content;
   margin: auto;
   padding: 40px 0 40px 0;
+}
+.linea {
+  max-height: 300px !important;
+}
+.egresosPieContainer {
+  min-height: max-content !important;
+}
+.chartjs-render-monitor {
+  min-height: 200px;
 }

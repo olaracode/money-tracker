@@ -1,33 +1,250 @@
 * {
   margin: 0;
+  /* overflow-x: hidden; */
+}
+html {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: "Roboto";
+  height: auto;
 }
 .image {
   width: 100%;
-  height: 400px;
-  background-image: url("./images/wp2172492.jpg");
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.5)
+    url("./images/229751517b6081a5a91050382913d8cd.jpg");
+  /* background-image: linear-gradient(to bottom right, #000b76, #093f63, #38869c); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  overflow: hidden;
+  background-blend-mode: overlay;
 }
 .botonContainer {
   margin: auto;
-  padding: 30px 0 0 0;
+  padding: 50px 0 0 30px;
   height: 50px;
   width: 170px;
-  position: relative;
+  position: absolute;
 }
 .boton {
   margin: auto;
   height: 50px;
+  background-image: linear-gradient(to bottom right, #38a2d6, #551138);
 }
 
 .imageContainer {
-  margin: auto;
-  width: 300px;
+  padding: 30vh 30px 0;
+  text-align: left;
 }
 
-.logo {
+.wave {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  color: white;
+  padding: 10px 0 0;
+}
+.especialH3 {
+  color: white;
+  width: fit-content;
+  font-size: xx-large !important;
+  text-align: left;
+  padding-bottom: 10px;
+}
+.especialP {
+  font-family: "Roboto";
+  font-size: larger;
+  color: white;
+}
+.landingBody {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  height: fit-content;
+}
+.triCardComponent {
+  height: fit-content;
+  padding: 100px 70px;
+  overflow: hidden;
+}
+.tricardH3 {
+  padding: 15px 5px 0 5px;
+  text-align: left;
+  color: #551138;
+  font-weight: bolder !important;
+}
+.tricardCard {
+  z-index: 999;
+  overflow-x: hidden;
+}
+.tricardIcon {
+  padding: 30px 5px 0;
+  color: #01406b !important;
+}
+.tricardP {
+  padding: 10px 5px;
+  font-family: "Roboto";
+}
+.triCardBlob {
+  height: 130vh;
+  position: relative;
+  overflow: hidden;
+  top: -110vh;
+  /* padding-right: 15vh; */
+}
+.tricardblobContainer {
+  width: max-content;
+  max-height: 715px;
   margin: auto;
-  padding: 80px 0 0 0;
-  width: 300px;
+}
+.triCardLonely {
+  z-index: 999;
+  padding: 150px 0 0 0 !important;
+}
+.triCardDiseño {
+  z-index: 999;
+  max-width: 805px !important;
+  margin: auto;
+  right: 0px;
+  position: relative;
+}
+.triCardImage {
+  max-width: 800px;
+}
+
+.quoteComponent {
+  top: -120vh;
+  position: relative;
+  padding-bottom: 250px;
+  width: 100%;
+  background-image: linear-gradient(to bottom right, #ff0a6c, #04646f);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  background-blend-mode: overlay;
+}
+.waveQuote {
+  position: absolute;
+  top: -5vh;
+}
+.quoteWaveBot {
+  position: absolute;
+  bottom: -1vh;
+}
+.quoteH3 {
+  text-align: left;
+  font-size: xx-large;
+  color: white;
+  font-weight: bolder;
+}
+.quoteP {
+  font-size: larger;
+  color: white;
+  text-align: right;
+  font-family: "Roboto";
+}
+.quoteContainer {
+  margin: auto;
+  width: fit-content;
+}
+.quoteStatsContainer {
+  padding: 50px 70px 80px;
+}
+.quotesPaperContainer {
+  width: fit-content;
+  margin: auto;
+}
+.statsH1 {
+  padding: 5px 20px;
+  margin: auto;
+  color: #c81e6d;
+  font-weight: 900;
+}
+.statsP {
+  padding: 15px;
+}
+.mockupContainer {
+  position: relative;
+  top: -100vh;
+  display: flex;
+  overflow: hidden;
+}
+.mockupTexto {
+  padding: 100px 0 0 70px;
+}
+.playStore {
+  width: 360px;
+  padding: 0 0 0 30px;
+}
+.muckupImg {
+  padding: 0 80px 0 300px;
+  max-width: 300px;
+}
+.footerContainer {
+  height: auto;
+  margin-top: -100vh;
+  padding: 30px;
+  position: relative;
+  /* background-image: linear-gradient(to bottom right, #01406b, #09426e, #05666e); */
+}
+.divider {
+  color: #04646f !important;
+  width: 70%;
+  margin: auto;
+}
+.RS {
+  color: #38a2d6;
+  padding: 30px 30px 10px 30px;
+  margin: auto;
+}
+.footerH3Title {
+  text-align: center;
+  color: white;
+}
+.footerH3 {
+  color: white;
+  text-align: left;
+}
+.rsiconContainer {
+  width: fit-content;
+  margin: auto;
+}
+@media (max-width: 1024px) {
+  .triCardDiseño {
+    padding: 180px 0 0 20px !important;
+    max-width: 400px !important;
+  }
+  .triCardImage {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 400px) {
+  .triCardImage {
+    width: 100%;
+  }
+  .triCardDiseño {
+    max-width: 350px !important;
+    padding: 20px 0 0 0 !important;
+  }
+  .triCardComponent {
+    padding: 50px 30px;
+  }
+  .triCardBlob {
+    top: -120vh;
+  }
+  .mockupContainer {
+    display: block;
+  }
+  .playStore {
+    padding: 0;
+  }
+  .muckupImg {
+    padding: 0;
+    margin: auto;
+  }
+  .mockupTexto {
+    padding: 10px;
+  }
 }

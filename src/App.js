@@ -13,6 +13,7 @@ import Metas from "./user/metas/Metas";
 import { LinearProgress } from "@material-ui/core";
 import "./loader.css";
 import UserNav from "./user/UserNav";
+import Footer from "./Footer";
 
 function App() {
   const [userData, setUserData] = useState({

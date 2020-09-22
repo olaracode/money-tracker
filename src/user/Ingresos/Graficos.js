@@ -84,6 +84,7 @@ function Graficos(props) {
                   display: true,
                   position: "left",
                 },
+                maintainAspectRatio: false,
               }}
             />
           </Grid>
@@ -112,12 +113,18 @@ function Graficos(props) {
                   display: true,
                   position: "right",
                 },
+                maintainAspectRatio: false,
               }}
             />
           </Grid>
           <div className="lineHeight">
             <Grid item xs={12} sm={12}>
-              <Line data={lineData} />
+              <Line
+                data={lineData}
+                options={{
+                  maintainAspectRatio: false,
+                }}
+              />
             </Grid>
           </div>
         </Grid>

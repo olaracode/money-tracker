@@ -11,7 +11,7 @@ function Navbar() {
                     <h3 className="izquierda">Ingresa</h3>
                 </Link> */}
                 <Link to="/" className="logoContainer">
-                    <img src={navlogo} alt="logo1" className="navlogo" />
+                    Money Comet
                 </Link>
                 {/* <Link>
                     <h3 className="derecha">Sobre nosotros</h3>

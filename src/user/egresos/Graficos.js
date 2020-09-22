@@ -59,7 +59,7 @@ function Graficos(props) {
     <div className="graficosContainer">
       <Paper>
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}>
+          <Grid className="egresosPieContainer" item xs={12} sm={6}>
             <Pie
               data={{
                 labels: props.categorias,
@@ -86,8 +86,9 @@ function Graficos(props) {
                 },
                 legend: {
                   display: true,
-                  position: "left",
+                  position: "bottom",
                 },
+                maintainAspectRatio: false,
               }}
             />
           </Grid>
@@ -118,14 +119,19 @@ function Graficos(props) {
                 },
                 legend: {
                   display: true,
-                  position: "right",
+                  position: "bottom",
                 },
+                maintainAspectRatio: false,
               }}
             />
           </Grid>
           <div className="lineHeight">
             <Grid item xs={12} sm={12}>
-              <Line data={lineData} />
+              <Line
+                className="linea"
+                data={lineData}
+                options={{ maintainAspectRatio: false }}
+              />
             </Grid>
           </div>
         </Grid>

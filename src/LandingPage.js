@@ -1,12 +1,14 @@
-import React from 'react'
-import LandingHeader from './LandingHeader'
-
+import React from "react";
+import LandingBody from "./LandingBody";
+import LandingHeader from "./LandingHeader";
+import "./landingPage.css";
 function LandingPage() {
-    return (
-        <div>
-            <LandingHeader/>
-        </div>
-    )
+  return (
+    <div className="BODY">
+      <LandingHeader />
+      <LandingBody />
+    </div>
+  );
 }
 
-export default LandingPage
+export default LandingPage;
